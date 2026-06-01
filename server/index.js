@@ -36,6 +36,10 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(
   cors({
     origin: (origin, callback) => {
+
+      console.log("Origin:", origin);
+      console.log("Allowed:", allowedOrigins);
+
       if (process.env.NODE_ENV !== "production") {
         return callback(null, true);
       }
